@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import ScrollToTopButton from "../components/ScrollToTopButton";
 import { useParams, useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
@@ -69,7 +70,8 @@ const DetalleVehiculo = () => {
           </div>
         </div>
       </main>
-      <Footer />
+  <Footer />
+  <ScrollToTopButton />
     </div>
   );
 };

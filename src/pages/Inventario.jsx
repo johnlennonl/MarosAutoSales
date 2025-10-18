@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ScrollToTopButton from "../components/ScrollToTopButton";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import CardVehiculo from "../components/CardVehiculo";
@@ -123,7 +124,8 @@ const Inventario = () => {
           )}
         </div>
       </main>
-      <Footer />
+  <Footer />
+  <ScrollToTopButton />
     </div>
   );
 };

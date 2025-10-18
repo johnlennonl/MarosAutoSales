@@ -1,5 +1,6 @@
 
 import React from "react";
+import { Link } from "react-router-dom";
 import maroLogo from '../assets/marosautosales.png';
 
 const socialLinks = [
@@ -39,10 +40,10 @@ const Footer = () => (
       </div>
       {/* Enlaces */}
       <div className="flex flex-col md:flex-row gap-2 md:gap-8 items-center">
-        <a href="/" className="hover:text-[#3498DB] font-medium transition">Inicio</a>
-        <a href="/inventario" className="hover:text-[#3498DB] font-medium transition">Inventario</a>
-        <a href="/financiamiento" className="hover:text-[#3498DB] font-medium transition">Financiamiento</a>
-        <a href="/contacto" className="hover:text-[#3498DB] font-medium transition">Contacto</a>
+  <Link to="/" className="hover:text-[#3498DB] font-medium transition">Inicio</Link>
+  <Link to="/inventario" className="hover:text-[#3498DB] font-medium transition">Inventario</Link>
+  <Link to="/financiamiento" className="hover:text-[#3498DB] font-medium transition">Financiamiento</Link>
+  <Link to="/contacto" className="hover:text-[#3498DB] font-medium transition">Contacto</Link>
       </div>
       {/* Redes sociales */}
       <div className="flex gap-4 items-center">
