@@ -39,18 +39,20 @@ const MarcasFlotantes = () => {
       <div className="w-full md:hidden px-2">
         <Swiper
           modules={[Autoplay]}
-          spaceBetween={16}
-          slidesPerView={2.2}
+          spaceBetween={8}
+          slidesPerView={3.5}
           centeredSlides={false}
-          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          autoplay={{ delay: 0, disableOnInteraction: false }}
+          speed={2200}
           loop={true}
+          freeMode={true}
           className="!pb-4"
         >
           {marcas.map(marca => (
             <SwiperSlide key={marca.nombre}>
               <div className="flex flex-col items-center">
-                <div className="bg-transparent rounded-lg border-none flex items-center justify-center h-24 w-32 p-3">
-                  <img src={marca.icon} alt={marca.nombre + " logo"} className="h-16 w-auto max-w-[120px] object-contain" />
+                <div className="bg-transparent rounded-lg border-none flex items-center justify-center h-20 w-36 p-2">
+                  <img src={marca.icon} alt={marca.nombre + " logo"} className="h-16 w-auto max-w-[130px] object-contain" />
                 </div>
               </div>
             </SwiperSlide>
