@@ -55,7 +55,7 @@ const Footer = () => (
       </div>
     </div>
     <div className="mt-8 text-center text-xs text-gray-400">
-      Sitio web desarrollado con React, Vite y Tailwind CSS · Diseño brutal para Maro Auto Sales LLC
+      &copy; {new Date().getFullYear()} Maro Auto Sales LLC. Todos los derechos reservados. | Desarrollado por John Lennon
     </div>
   </footer>
 );
