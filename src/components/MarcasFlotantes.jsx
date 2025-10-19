@@ -1,4 +1,7 @@
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Autoplay } from "swiper/modules";
 import kiaLogo from "../assets/kia.svg";
 import toyotaLogo from "../assets/toyota-1.svg";
 import fordLogo from "../assets/ford-7.svg";
@@ -20,23 +23,39 @@ const marcas = [
 ];
 
 const MarcasFlotantes = () => {
-  // Si el número de marcas es impar, centramos la última (Chevrolet)
-  const isOdd = marcas.length % 2 !== 0;
   return (
     <section className="w-full flex justify-center items-center py-7 pb-4 bg-white shadow-lg">
-      <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-y-8 gap-x-4 md:gap-x-10 w-full max-w-6xl px-2 md:px-6">
-        {marcas.map((marca, idx) => {
-          // Centrar Chevrolet en mobile si es la última y el número de marcas es impar
-          const isLast = idx === marcas.length - 1;
-          const mobileCenter = isOdd && isLast ? "col-span-2 justify-self-center" : "";
-          return (
-            <div key={marca.nombre} className={`flex flex-col items-center ${mobileCenter}`}>
-              <div className="bg-transparent rounded-lg border-none flex items-center justify-center h-24 w-32 md:h-20 md:w-32 p-3">
-                <img src={marca.icon} alt={marca.nombre + " logo"} className="h-16 md:h-16 w-auto max-w-[120px] object-contain" />
-              </div>
+      {/* Desktop: fila normal */}
+      <div className="hidden md:flex w-full max-w-6xl justify-center gap-8 px-2 md:px-6">
+        {marcas.map(marca => (
+          <div key={marca.nombre} className="flex flex-col items-center">
+            <div className="bg-transparent rounded-lg border-none flex items-center justify-center h-20 w-32 p-3">
+              <img src={marca.icon} alt={marca.nombre + " logo"} className="h-16 w-auto max-w-[120px] object-contain" />
             </div>
-          );
-        })}
+          </div>
+        ))}
+      </div>
+      {/* Mobile: carrusel */}
+      <div className="w-full md:hidden px-2">
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={16}
+          slidesPerView={2.2}
+          centeredSlides={false}
+          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          loop={true}
+          className="!pb-4"
+        >
+          {marcas.map(marca => (
+            <SwiperSlide key={marca.nombre}>
+              <div className="flex flex-col items-center">
+                <div className="bg-transparent rounded-lg border-none flex items-center justify-center h-24 w-32 p-3">
+                  <img src={marca.icon} alt={marca.nombre + " logo"} className="h-16 w-auto max-w-[120px] object-contain" />
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </section>
   );

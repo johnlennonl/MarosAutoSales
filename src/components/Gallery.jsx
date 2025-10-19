@@ -1,18 +1,34 @@
 import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 
 const Gallery = ({ images }) => {
-  const [selected, setSelected] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   return (
     <div>
-  <img src={images[selected]} alt="Foto vehículo" className="w-full h-[340px] object-contain bg-white rounded-lg mb-2" />
-      <div className="flex gap-2 overflow-x-auto">
+      <Swiper
+        modules={[Autoplay]}
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
+        loop={true}
+        slidesPerView={1}
+        onSlideChange={swiper => setActiveIndex(swiper.realIndex)}
+        className="w-full h-[340px] rounded-lg mb-2"
+      >
+        {images.map((img, idx) => (
+          <SwiperSlide key={idx}>
+            <img src={img} alt={`Foto vehículo ${idx + 1}`} className="w-full h-[340px] object-contain bg-white rounded-lg" />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <div className="flex gap-2 overflow-x-auto mt-2 justify-center">
         {images.map((img, idx) => (
           <img
             key={idx}
             src={img}
             alt={`Miniatura ${idx + 1}`}
-            className={`w-16 h-16 object-cover rounded cursor-pointer border-2 ${selected === idx ? 'border-blue-700' : 'border-transparent'}`}
-            onClick={() => setSelected(idx)}
+            className={`w-16 h-16 object-cover rounded cursor-pointer border-2 ${activeIndex === idx ? 'border-blue-700' : 'border-transparent'}`}
+            onClick={() => setActiveIndex(idx)}
           />
         ))}
       </div>
