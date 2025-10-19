@@ -29,7 +29,7 @@ const MarcasFlotantes = () => {
       <div className="hidden md:flex w-full max-w-6xl justify-center gap-8 px-2 md:px-6">
         {marcas.map(marca => (
           <div key={marca.nombre} className="flex flex-col items-center">
-            <div className="bg-transparent rounded-lg border-none flex items-center justify-center h-20 w-32 p-3">
+            <div className="bg-transparent rounded-lg border-none flex items-center justify-center h-20 w-32 p-3 transition-transform transition-shadow duration-200 hover:scale-110 hover:shadow-xl cursor-pointer">
               <img src={marca.icon} alt={marca.nombre + " logo"} className="h-16 w-auto max-w-[120px] object-contain" />
             </div>
           </div>
