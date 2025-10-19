@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import maroLogo from '../assets/marosautosales.png';
 
 const navLinks = [
@@ -24,7 +24,17 @@ const socialLinks = [
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState("");
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    if (search.trim()) {
+      navigate(`/inventario?search=${encodeURIComponent(search.trim())}`);
+      setOpen(false); // Cierra el menú mobile si está abierto
+    }
+  };
   return (
     <nav className="sticky top-0 z-50 bg-[#05141F] shadow-lg border-b-0 backdrop-blur">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-20">
@@ -46,8 +56,14 @@ const NavBar = () => {
         </div>
         {/* Buscador y redes sociales desktop separados */}
         <div className="hidden md:flex items-center gap-8">
-          <form className="flex items-center bg-[#11263D] rounded-lg px-2 py-1 mr-6">
-            <input type="text" placeholder="Buscar..." className="bg-transparent text-white placeholder-gray-400 px-2 py-1 outline-none" />
+          <form className="flex items-center bg-[#11263D] rounded-lg px-2 py-1 mr-6" onSubmit={handleSearchSubmit}>
+            <input
+              type="text"
+              placeholder="Buscar..."
+              className="bg-transparent text-white placeholder-gray-400 px-2 py-1 outline-none"
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+            />
             <button type="submit" className="text-[#3498DB] hover:text-white px-2">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke="currentColor" /><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" /></svg>
             </button>
@@ -85,8 +101,14 @@ const NavBar = () => {
             </Link>
           ))}</>
           {/* Buscador mobile */}
-          <form className="flex items-center bg-[#11263D] rounded-lg px-2 py-1 mt-2">
-            <input type="text" placeholder="Buscar..." className="bg-transparent text-white placeholder-gray-400 px-2 py-1 outline-none w-full" />
+          <form className="flex items-center bg-[#11263D] rounded-lg px-2 py-1 mt-2" onSubmit={handleSearchSubmit}>
+            <input
+              type="text"
+              placeholder="Buscar..."
+              className="bg-transparent text-white placeholder-gray-400 px-2 py-1 outline-none w-full"
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+            />
             <button type="submit" className="text-[#3498DB] hover:text-white px-2">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke="currentColor" /><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" /></svg>
             </button>

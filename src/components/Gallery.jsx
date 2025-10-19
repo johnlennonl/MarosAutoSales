@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 const Gallery = ({ images }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const swiperRef = useRef(null);
   return (
     <div>
       <Swiper
@@ -13,6 +14,7 @@ const Gallery = ({ images }) => {
         loop={true}
         slidesPerView={1}
         onSlideChange={swiper => setActiveIndex(swiper.realIndex)}
+        onSwiper={swiper => (swiperRef.current = swiper)}
         className="w-full h-[340px] rounded-lg mb-2"
       >
         {images.map((img, idx) => (
@@ -28,7 +30,12 @@ const Gallery = ({ images }) => {
             src={img}
             alt={`Miniatura ${idx + 1}`}
             className={`w-16 h-16 object-cover rounded cursor-pointer border-2 ${activeIndex === idx ? 'border-blue-700' : 'border-transparent'}`}
-            onClick={() => setActiveIndex(idx)}
+            onClick={() => {
+              setActiveIndex(idx);
+              if (swiperRef.current) {
+                swiperRef.current.slideToLoop(idx);
+              }
+            }}
           />
         ))}
       </div>
