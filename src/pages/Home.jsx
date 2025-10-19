@@ -18,7 +18,7 @@ const Home = () => {
         {/* Imagen de fondo hero actualizada */}
         <div className="absolute inset-0 w-full h-full pointer-events-none select-none z-0">
           <img src="https://www.kia.com/content/dam/kia/us/en/vehicles/k5/2026/mep/in-page-gallery-v2/my26_k5-mep-gallery-ext8.jpg" alt="Concesionario autos usados" className="w-full h-full object-cover object-center" />
-          <div className="absolute inset-0 bg-blue bg-opacity-75"></div>
+          <div className="absolute inset-0 bg-slate-800 bg-opacity-75"></div>
           <div className="absolute inset-0 bg-white bg-opacity-40"></div>
         </div>
         {/* Logo protagonista animado */}
