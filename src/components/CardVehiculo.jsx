@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { FaKey, FaTachometerAlt, FaCarSide, FaCalendarAlt, FaMoneyBillWave } from "react-icons/fa";
+import { KeyRound, Gauge, Car, Calendar, BadgeDollarSign } from "lucide-react";
 
 const CardVehiculo = ({ vehiculo }) => {
   const navigate = useNavigate();
@@ -17,10 +17,10 @@ const CardVehiculo = ({ vehiculo }) => {
         </div>
         <div className="text-gray-600 text-sm mb-2 line-clamp-2">{vehiculo.descripcionCorta}</div>
         <div className="flex flex-wrap gap-4 my-3 text-[#323A43]">
-          <span className="flex items-center gap-1 text-xs"><FaKey className="text-[#EA0029]" /> {vehiculo.llaves} Llaves</span>
-          <span className="flex items-center gap-1 text-xs"><FaTachometerAlt className="text-[#EA0029]" /> {vehiculo.kilometraje.toLocaleString()} km</span>
-          <span className="flex items-center gap-1 text-xs"><FaCarSide className="text-[#EA0029]" /> VIN: {vehiculo.vin || 'N/A'}</span>
-          <span className="flex items-center gap-1 text-xs"><FaCalendarAlt className="text-[#EA0029]" /> {vehiculo.año}</span>
+          <span className="flex items-center gap-1 text-xs"><KeyRound className="text-[#3498DB] w-4 h-4" /> {vehiculo.llaves} Llaves</span>
+          <span className="flex items-center gap-1 text-xs"><Gauge className="text-[#3498DB] w-4 h-4" /> {vehiculo.kilometraje.toLocaleString()} km</span>
+          <span className="flex items-center gap-1 text-xs"><Car className="text-[#3498DB] w-4 h-4" /> VIN: {vehiculo.vin || 'N/A'}</span>
+          <span className="flex items-center gap-1 text-xs"><Calendar className="text-[#3498DB] w-4 h-4" /> {vehiculo.año}</span>
         </div>
         <div className="border-t border-gray-200 pt-3 mt-auto flex items-center justify-between">
           <span className="text-lg font-bold text-[#3498DB]">Ofrecido en: ${vehiculo.precio.toLocaleString('en-US')}</span>

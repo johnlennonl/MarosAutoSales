@@ -18,13 +18,33 @@ export const mockVehicles = [
       "https://i.ibb.co/dw1ZPZf0/Imagen-de-Whats-App-2025-10-17-a-las-18-42-53-54f8d777.jpg"
     ],
     esDestacado: true,
-    llaves: 2
+    llaves: 2,
+    estimadoMensual: 159
   },
   {
     id: "V002",
     marca: "Ford",
     modelo: "Fusion",
     año: 2017,
+    precio: 85000,
+    kilometraje: 5000,
+    color: "Gris",
+    descripcionCorta: "Máximo rendimiento. Motor V8 Biturbo, 577 hp. Una máquina de pista lista para la calle.",
+    imagenUrl: "https://i.ibb.co/4gFyzQqp/Imagen-de-Whats-App-2025-10-17-a-las-10-33-58-2764af73.jpg",
+    images: [
+      "https://i.ibb.co/4gFyzQqp/Imagen-de-Whats-App-2025-10-17-a-las-10-33-58-2764af73.jpg",
+      "https://i.ibb.co/Y7f3BLRj/Imagen-de-Whats-App-2025-10-17-a-las-10-33-57-88b22ae1.jpg",
+      "https://i.ibb.co/fVNqxhqD/Imagen-de-Whats-App-2025-10-17-a-las-10-33-57-134d0fd3.jpg",
+      "https://i.ibb.co/Hf8qCp8w/Imagen-de-Whats-App-2025-10-17-a-las-10-33-58-a4404825.jpg"
+    ],
+    esDestacado: true,
+    llaves: 2
+  },
+  {
+    id: "V003",
+    marca: "Toyota",
+    modelo: "Corolla",
+    vin: "1N4BL4BV0KC172861",
     precio: 85000,
     kilometraje: 5000,
     color: "Gris",

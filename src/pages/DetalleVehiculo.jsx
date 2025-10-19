@@ -4,7 +4,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Gallery from "../components/Gallery";
-import { FaCalendarAlt, FaTachometerAlt, FaPalette, FaCarSide, FaKey, FaWhatsapp, FaPhoneAlt, FaCalculator } from "react-icons/fa";
+import { Calendar, Gauge, Palette, Car, KeyRound, Phone, Calculator } from "lucide-react";
+import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
 import FinanciamientoCalculator from "../components/FinanciamientoCalculator";
 import LeadForm from "../components/LeadForm";
 import { mockVehicles } from "../data/mockVehicles";
@@ -39,8 +40,14 @@ const DetalleVehiculo = () => {
           <div className="flex flex-col gap-8">
             <Gallery images={vehiculo.images} className="rounded-none max-h-[420px] object-contain" />
             <div className="bg-white border border-gray-200 p-6 md:p-8 shadow-lg flex flex-col gap-4">
-              <div className="flex items-center gap-2 mb-2 text-[#0B1C2A] font-bold text-lg"><FaCalculator className="text-2xl" /> Calculadora de financiamiento</div>
-              <FinanciamientoCalculator precio={vehiculo.precio} />
+              <div className="flex items-center gap-2 mb-2 text-[#0B1C2A] font-bold text-lg">
+                <Calculator className="text-2xl" />
+                Estimado mensual
+              </div>
+              <div className="text-xl font-bold text-[#EA0029]">
+                $ {vehiculo.estimadoMensual} <span className="text-gray-500 text-base font-normal">/mes aprox.</span>
+              </div>
+              <div className="text-xs text-gray-500">* El cálculo es aproximado y no representa una oferta formal. Consulta condiciones reales con el asesor.</div>
             </div>
           </div>
           <div className="flex flex-col gap-6">
@@ -49,11 +56,11 @@ const DetalleVehiculo = () => {
               <div className="text-2xl font-bold text-[#EA0029] mb-2">{vehiculo.precio.toLocaleString('es-US', { style: 'currency', currency: 'USD' })}</div>
               <div className="mb-4 text-gray-700 text-lg">{vehiculo.descripcionCorta}</div>
               <ul className="mb-4 text-[#323A43] text-base space-y-2">
-                <li className="flex items-center gap-2"><FaCalendarAlt className="text-[#3498DB] text-lg" /><span className="font-semibold">Año:</span> {vehiculo.año}</li>
-                <li className="flex items-center gap-2"><FaTachometerAlt className="text-[#3498DB] text-lg" /><span className="font-semibold">Kilometraje:</span> {vehiculo.kilometraje.toLocaleString()} km</li>
-                <li className="flex items-center gap-2"><FaPalette className="text-[#3498DB] text-lg" /><span className="font-semibold">Color:</span> {vehiculo.color}</li>
-                <li className="flex items-center gap-2"><FaCarSide className="text-[#3498DB] text-lg" /><span className="font-semibold">VIN:</span> {vehiculo.vin || 'N/A'}</li>
-                <li className="flex items-center gap-2"><FaKey className="text-[#3498DB] text-lg" /><span className="font-semibold">Llaves:</span> {vehiculo.llaves || 'N/A'}</li>
+                <li className="flex items-center gap-2"><Calendar className="text-[#3498DB] w-5 h-5" /><span className="font-semibold">Año:</span> {vehiculo.año}</li>
+                <li className="flex items-center gap-2"><Gauge className="text-[#3498DB] w-5 h-5" /><span className="font-semibold">Kilometraje:</span> {vehiculo.kilometraje.toLocaleString()} km</li>
+                <li className="flex items-center gap-2"><Palette className="text-[#3498DB] w-5 h-5" /><span className="font-semibold">Color:</span> {vehiculo.color}</li>
+                <li className="flex items-center gap-2"><Car className="text-[#3498DB] w-5 h-5" /><span className="font-semibold">VIN:</span> {vehiculo.vin || 'N/A'}</li>
+                <li className="flex items-center gap-2"><KeyRound className="text-[#3498DB] w-5 h-5" /><span className="font-semibold">Llaves:</span> {vehiculo.llaves || 'N/A'}</li>
               </ul>
               <div className="flex gap-4 mb-6">
                 <a href="https://wa.me/1XXXXXXXXXX?text=Hola,%20estoy%20interesado%20en%20el%20vehículo%20{vehiculo.marca}%20{vehiculo.modelo}" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-2 px-6 rounded shadow-lg text-lg transition">
