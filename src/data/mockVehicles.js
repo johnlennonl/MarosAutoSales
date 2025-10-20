@@ -9,9 +9,9 @@ export const mockVehicles = [
     kilometraje: 151867,
     color: "Gris Plata",
     descripcionCorta: "2.5L I4 DOHC 16V GASOLINA. Eficiencia y estilo en cada viaje.",
-    imagenUrl: "https://i.ibb.co/FfhwYdT/Imagen-de-Whats-App-2025-10-17-a-las-10-33-59-14698c94.jpg",
+    imagenUrl: "https://i.ibb.co/xTgw802/Dise-o-sin-t-tulo-2.png",
     images: [
-      "https://i.ibb.co/FfhwYdT/Imagen-de-Whats-App-2025-10-17-a-las-10-33-59-14698c94.jpg",
+      "https://i.ibb.co/xTgw802/Dise-o-sin-t-tulo-2.png",
       "https://i.ibb.co/ffc1BWm/Imagen-de-Whats-App-2025-10-17-a-las-10-33-59-6528e0c7.jpg",
       "https://i.ibb.co/6Rms1Nr8/Imagen-de-Whats-App-2025-10-17-a-las-10-33-58-a078a7c0.jpg",
       "https://i.ibb.co/Q3x8pg97/Imagen-de-Whats-App-2025-10-17-a-las-10-33-59-7053b35d.jpg",
