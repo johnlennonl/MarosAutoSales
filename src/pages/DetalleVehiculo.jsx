@@ -36,9 +36,11 @@ const DetalleVehiculo = () => {
       <NavBar />
       <main className="flex-1 max-w-7xl mx-auto w-full px-4 py-10">
         <button className="mb-6 text-[#0B1C2A] font-semibold hover:underline" onClick={() => navigate(-1)}>&larr; Volver</button>
-        <div className="grid md:grid-cols-2 gap-10 items-start">
-          <div className="flex flex-col gap-8">
-            <Gallery images={vehiculo.images} className="rounded-none max-h-[420px] object-contain" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-start w-full">
+          <div className="flex flex-col gap-6 md:gap-8 w-full">
+            <div className="w-full">
+              <Gallery images={vehiculo.images} />
+            </div>
             <div className="bg-white border border-gray-200 p-6 md:p-8 shadow-lg flex flex-col gap-4">
               <div className="flex items-center gap-2 mb-2 text-[#0B1C2A] font-bold text-lg">
                 <Calculator className="text-2xl" />

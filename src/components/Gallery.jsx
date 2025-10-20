@@ -7,7 +7,7 @@ const Gallery = ({ images }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef(null);
   return (
-    <div>
+    <div className="w-full">
       <Swiper
         modules={[Autoplay]}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
@@ -15,15 +15,15 @@ const Gallery = ({ images }) => {
         slidesPerView={1}
         onSlideChange={swiper => setActiveIndex(swiper.realIndex)}
         onSwiper={swiper => (swiperRef.current = swiper)}
-        className="w-full h-[340px] rounded-lg mb-2"
+        className="w-full h-[320px] sm:h-[340px] rounded-lg mb-2"
       >
         {images.map((img, idx) => (
           <SwiperSlide key={idx}>
-            <img src={img} alt={`Foto vehículo ${idx + 1}`} className="w-full h-[340px] object-contain bg-white rounded-lg" />
+            <img src={img} alt={`Foto vehículo ${idx + 1}`} className="w-full h-[320px] sm:h-[340px] object-contain bg-white rounded-lg" />
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="flex gap-2 overflow-x-auto mt-2 justify-center">
+      <div className="flex gap-2 overflow-x-auto mt-2 justify-center w-full">
         {images.map((img, idx) => (
           <img
             key={idx}
